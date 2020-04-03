@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Header</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="../../static/css/style.css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<div id="topnav" class="topnav" th:fragment="header">
+    <a href="#" th:href="@{/}" th:classappend="${#httpServletRequest.requestURI == '/' ? 'active' : ''}">Home</a>
+    <a href="#" th:href="@{/addItem}" th:classappend="${#httpServletRequest.requestURI == '/addItem' ? 'active' : ''}">Add Item</a>
+    <a href="#" th:href="@{/suggestion}" th:classappend="${#httpServletRequest.requestURI == '/suggestion' ? 'active' : ''}">Suggestion</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+</div>
+</body>
+</html>

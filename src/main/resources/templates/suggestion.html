@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Watch Next: Add Item</title>
+    <title>Watch Next: Suggestion</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}"/>
 </head>
 <body>
 <div id="topnav" class="topnav" th:replace="fragments/header :: header">
     <a href="#">Home</a>
-    <a href="#" class="active">Add Item</a>
-    <a href="#">Suggestion</a>
+    <a href="#">Add Item</a>
+    <a href="#" class="active">Suggestion</a>
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
 </div>
-<h1>Add Item</h1>
-<form method="post">
-    <label for="fname" >Name</label><br>
-    <input type="input" id="fname" name="name"><br><br>
-    <input type="submit" value="Submit">
+<h1>Suggestion</h1>
+<label th:text="${item.name}">Game of Thrones</label><br><br>
+<form action="/selection" method="post">
+    <input type="hidden" id="fid" name="id" th:value="${item.id}">
+    <input type="hidden" id="fname" name="name" th:value="${item.name}">
+    <input type="submit" value="Accept">
+    <button type="button" onclick="window.location.reload(true);">Try Again</button>
 </form>
 <script type="text/javascript" src="../static/js/topnav.js" th:src="@{/js/topnav.js}"></script>
 </body>

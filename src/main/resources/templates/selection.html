@@ -1,24 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Watch Next: Home</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Watch Next: Selection</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" type="text/css" href="../static/css/style.css" th:href="@{/css/style.css}"/>
 </head>
 <body>
 <div id="topnav" class="topnav" th:replace="fragments/header :: header">
-    <a href="#" class="active">Home</a>
+    <a href="#">Home</a>
     <a href="#">Add Item</a>
-    <a href="#">Suggestion</a>
+    <a href="#" class="active">Suggestion</a>
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
 </div>
-<div>
-<h1>Watch Next</h1>
-<a href="/addItem" class="button add">+</a>
-</div>
-<ul>
-    <li th:each="item: ${allItems}" th:text="${item.name}" class="item list-item">Game of Thrones</li>
-</ul>
+<h1>Selection</h1>
+<label th:text="${item.name}">Game of Thrones</label><br><br>
 <script type="text/javascript" src="../static/js/topnav.js" th:src="@{/js/topnav.js}"></script>
 </body>
 </html>
