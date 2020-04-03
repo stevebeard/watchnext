@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Watch Next: Home</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<div class="topnav">
+    <a href="/" class="active">Home</a>
+</div>
+<div>
+<h1>Watch Next</h1>
+<a href="/addItem" class="button add">+</a>
+</div>
+<ul>
+    <li th:each="item: ${allItems}" th:text="${item.name}" class="item list-item">Game of Thrones</li>
+</ul>
+</body>
+</html>

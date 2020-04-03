@@ -21,7 +21,15 @@ public class Item {
     protected Item() {}
 
     public Item(String name) {
-        this.name = Objects.requireNonNull(name, "name must not be null");
+        this.name = checkName(name);
+    }
+
+    private String checkName(String input) {
+        Objects.requireNonNull(input, "name must not be null");
+        if (input.trim().isEmpty()) {
+            throw new IllegalArgumentException("name must not be empty");
+        }
+        return input;
     }
 
 }
