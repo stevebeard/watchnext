@@ -12,11 +12,15 @@ public class DemoDataInitializer {
     @Bean
     CommandLineRunner initDatabase(ItemRepository repository) {
         return args -> {
-            log.info("Preloading " + repository.save(new Item("Game of Thrones")));
-            log.info("Preloading " + repository.save(new Item("American Horror Story")));
-            log.info("Preloading " + repository.save(new Item("Lost")));
-            log.info("Preloading " + repository.save(new Item("Buffy the Vampire Slayer")));
-            log.info("Preloading " + repository.save(new Item("Breaking bad")));
+            if (repository.count() == 0)
+            {
+                log.info("Initializing database with demo data...");
+                log.info("Preloading " + repository.save(new Item("Game of Thrones")));
+                log.info("Preloading " + repository.save(new Item("American Horror Story")));
+                log.info("Preloading " + repository.save(new Item("Lost")));
+                log.info("Preloading " + repository.save(new Item("Buffy the Vampire Slayer")));
+                log.info("Preloading " + repository.save(new Item("Breaking bad")));
+            }
         };
     }
 
